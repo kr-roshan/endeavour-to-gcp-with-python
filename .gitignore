@@ -32,8 +32,7 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-#Python libraries
-PythonCode/venv/
+#Python virtual environment folder
 venv/
 
 # Visual Studio 2015/2017 cache/options directory
