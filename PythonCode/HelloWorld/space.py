@@ -6,3 +6,4 @@ print(response.json())
 
 for person in response.json()['people']:
     print(person['name'])
+
