@@ -1,0 +1,2 @@
+#install Google Cloud BigQuery library
+pip install --upgrade google-cloud-bigquery

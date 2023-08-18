@@ -1,0 +1,8 @@
+#enter following command in VS Code terminal
+python -m venv "project-folder-path\venv"
+python -m venv "D:\OneDrive\Study\gcp-with-python\endeavour-to-gcp-with-python\PythonCode\venv"
+
+#install request library
+pip install requests
+
+

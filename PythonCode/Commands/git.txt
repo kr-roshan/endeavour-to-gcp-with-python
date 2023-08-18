@@ -1,0 +1,38 @@
+#to check if ssh key is present locally:
+ls -al ~/.ssh
+
+#generate ssh key
+ssh-keygen -t rsa -b 4096 -C "hotmail@hotmail.com"
+
+#to ensure ssh agant is running
+eval $(ssh-agent -s)
+
+#add ssh key
+ssh-add ~/.ssh/id_rsa
+
+#to verify local connection with github
+ssh -T git@github.com
+
+#to clond github repository
+#switch to directory
+cd "D:\OneDrive\Study\gcp-with-python"
+git clone git@github.com:kr-roshan/endeavour-to-gcp-with-python.git
+
+#to get current file status
+git status
+
+#add all files
+git add .
+
+#to locally commit files
+git commit -m "Sample JSON for external table"
+
+#to push files to github
+git push origin main
+
+#pul changes in git database, and not in working directory
+git fetch
+
+#get all server changes
+git pull
+
