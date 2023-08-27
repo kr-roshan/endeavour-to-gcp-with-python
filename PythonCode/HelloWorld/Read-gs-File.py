@@ -1,0 +1,1 @@
+# input_file = 'gs://pub/shakespeare/rose.txt'
