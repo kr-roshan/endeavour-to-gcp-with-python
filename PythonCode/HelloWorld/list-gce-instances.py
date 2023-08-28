@@ -1,4 +1,11 @@
-# reference https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/courses/developingapps/python/devenv/list-gce-instances.py
+'''
+References:
+https://www.cloudskillsboost.google/focuses/1074?parent=catalog
+https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/courses/developingapps/python/devenv/list-gce-instances.py
+https://www.c-sharpcorner.com/article/creating-python-application-development-environment-in-google-cloud-platform/
+
+'''
+
 # pip install google-api-python-client
 
 # WHERE TO EXECUTE THIS?
