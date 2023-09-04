@@ -1,4 +1,5 @@
-# all success trigger: All of the directly upstream tasks need to have succeeded in order for this task to run.
+# all done trigger: All directly upstream tasks are done. The status of this task is not taken into account. 
+# For example, this is useful to trigger downstream tasks that do not need any result, only timing.
 
 import datetime
 
@@ -16,7 +17,7 @@ default_dag_args = {
 }
 
 with models.DAG (
-    'python_and_bash_with_all_success_trigger',
+    'python_and_bash_with_all_done_trigger',
     schedule_interval=datetime.timedelta(days=1),
     default_args=default_dag_args) as dag:  
 
@@ -26,21 +27,22 @@ with models.DAG (
         return 1
     
     def greeting():
+        raise TypeError('Incorrect type in greeting.') # this is optional
         print('Greetings from Roshan. Happy Learning!')
         return 'Greeting successfully printed'
     
     hello_world_greeting = python_operator.PythonOperator(
-        task_id='python_1',
+        task_id='python_hello_world',
         python_callable=hello_world)
     
     roshan_greeting = python_operator.PythonOperator(
-        task_id='python_2',
+        task_id='python_roshan_greeting',
         python_callable=greeting)
     
     bash_greeting = bash_operator.BashOperator(
-        task_id='bash_3',
+        task_id='bash_greeting',
         bash_command='echo "Bye! See you soon."',
-        trigger_rule=trigger_rule.TriggerRule.ALL_SUCCESS)
+        trigger_rule=trigger_rule.TriggerRule.ALL_DONE)
     
     hello_world_greeting >> roshan_greeting >> bash_greeting
     

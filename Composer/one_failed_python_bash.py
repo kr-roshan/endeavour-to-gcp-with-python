@@ -1,4 +1,5 @@
-# all success trigger: All of the directly upstream tasks need to have succeeded in order for this task to run.
+# one failed trigger: One of the directly upstream tasks has failed. The status of this task is not taken into account. 
+# For example, this is useful to trigger downstream tasks that do not need all of the upstream tasks to succeed, just one of them.
 
 import datetime
 
@@ -30,17 +31,17 @@ with models.DAG (
         return 'Greeting successfully printed'
     
     hello_world_greeting = python_operator.PythonOperator(
-        task_id='python_1',
+        task_id='python_hello',
         python_callable=hello_world)
     
     roshan_greeting = python_operator.PythonOperator(
-        task_id='python_2',
+        task_id='python_greeting',
         python_callable=greeting)
     
     bash_greeting = bash_operator.BashOperator(
-        task_id='bash_3',
+        task_id='bash_bye',
         bash_command='echo "Bye! See you soon."',
-        trigger_rule=trigger_rule.TriggerRule.ALL_SUCCESS)
+        trigger_rule=trigger_rule.TriggerRule.ONE_FAILED)
     
     hello_world_greeting >> roshan_greeting >> bash_greeting
     
