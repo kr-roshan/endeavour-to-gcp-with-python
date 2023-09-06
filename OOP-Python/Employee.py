@@ -1,3 +1,10 @@
+class MyEmployee:
+    pass
+
+e = MyEmployee();
+# since class has no attributes, it will print empty dictionary like {}
+print(e.__dict__)
+
 # Standard Employee class 
 class Employee:
     # initialization function
