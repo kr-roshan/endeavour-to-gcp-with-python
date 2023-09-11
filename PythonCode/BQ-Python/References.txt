@@ -1,1 +1,4 @@
 Python Client for Google BigQuery: https://cloud.google.com/python/docs/reference/bigquery/latest/index.html
+
+https://quescol.com/interview-preparations/python-coding-question
+
