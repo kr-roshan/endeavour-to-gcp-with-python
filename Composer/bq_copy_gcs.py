@@ -9,13 +9,12 @@ from airflow.operators import dummy_operator
 default_args = {
     'owner': 'airflow',
     'start_date': datetime.datetime.today(),
-    'depends_on_past': False,
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=5),
 }
 
 # variables
-dest_bucket = "26071978-us"
+dest_bucket = "26071978-2-us"
 source_table = "nyc-tlc:green.trips_2014"
 
 with models.DAG('bq_copy_gcs',
@@ -28,7 +27,6 @@ with models.DAG('bq_copy_gcs',
 
     end = dummy_operator.DummyOperator(
         task_id='end',
-
         trigger_rule='all_success'
     )
 
